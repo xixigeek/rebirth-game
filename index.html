@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重生之我在xxx做xxx - 文字冒险游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 标题画面 -->
+        <div id="title-screen" class="screen active">
+            <h1 class="comic-title">重生之我在xxx做xxx</h1>
+            <p class="subtitle">离谱爽文模拟器</p>
+            <button id="start-btn" class="comic-btn">开始重生</button>
+        </div>
+
+        <!-- 角色选择画面 -->
+        <div id="character-select" class="screen">
+            <h2>选择你的重生身份</h2>
+            <div id="character-list"></div>
+        </div>
+
+        <!-- 游戏主界面 -->
+        <div id="game-screen" class="screen">
+            <!-- 属性面板 -->
+            <div id="stats-panel">
+                <div class="stat-item">
+                    <span class="stat-label">魅力</span>
+                    <div class="stat-bar"><div id="charm-bar" class="stat-fill"></div></div>
+                    <span id="charm-value">50</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">智力</span>
+                    <div class="stat-bar"><div id="intelligence-bar" class="stat-fill"></div></div>
+                    <span id="intelligence-value">50</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">财富</span>
+                    <div class="stat-bar"><div id="wealth-bar" class="stat-fill"></div></div>
+                    <span id="wealth-value">50</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">武力</span>
+                    <div class="stat-bar"><div id="strength-bar" class="stat-fill"></div></div>
+                    <span id="strength-value">50</span>
+                </div>
+            </div>
+
+            <!-- 金手指面板 -->
+            <div id="cheat-panel">
+                <h3>🎯 金手指</h3>
+                <div id="cheat-list"></div>
+            </div>
+
+            <!-- 剧情文本区域 -->
+            <div id="story-panel">
+                <div id="story-text"></div>
+            </div>
+
+            <!-- 选项按钮区域 -->
+            <div id="choices-panel"></div>
+
+            <!-- 返回按钮 -->
+            <button id="back-btn" class="comic-btn small">返回主菜单</button>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="engine.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
