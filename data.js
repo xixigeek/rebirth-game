@@ -26,6 +26,14 @@ const gameData = {
             initialStats: { charm: 30, intelligence: 60, wealth: 5, strength: 50 },
             cheats: ['幸运爆棚', '隐藏任务', '人脉觉醒'],
             startNode: 'beggar_start'
+        },
+        {
+            id: 'p8',
+            name: '阿里P8',
+            description: '重生为互联网大厂P8大佬，手握期权，张口闭口底层逻辑，在996的福报中逆天改命',
+            initialStats: { charm: 40, intelligence: 95, wealth: 80, strength: 20 },
+            cheats: ['向上管理光环', '周报自动生成器', '黑话精通'],
+            startNode: 'p8_start'
         }
     ],
 
@@ -997,6 +1005,183 @@ const gameData = {
         'beggar_official': { text: '我报告官府,他们派兵剿灭。', choices: [{ text: '结局', nextNode: 'beggar_end_2', statCheck: null }] },
         'beggar_retire': { text: '我辞官归隐,开了一家小店。', choices: [{ text: '逍遥', nextNode: 'beggar_end_1', statCheck: null }] },
         'beggar_usurp': { text: '我篡位成功,成为新皇帝。', choices: [{ text: '登基', nextNode: 'beggar_end_1', statCheck: null }] },
-        'beggar_wander': { text: '我云游四海,行侠仗义。', choices: [{ text: '传奇', nextNode: 'beggar_end_2', statCheck: null }] }
+        'beggar_wander': { text: '我云游四海,行侠仗义。', choices: [{ text: '传奇', nextNode: 'beggar_end_2', statCheck: null }] },
+
+        // ===== 阿里P8线 =====
+        'p8_start': {
+            text: `我重生了！
+
+睁开眼，我发现自己正坐在西溪园区的工位上。
+凌晨3点，周围静悄悄的，只有键盘敲击声。
+
+【叮！职场逆袭系统激活】
+【当前身份：阿里P8（高级专家）】
+【新手礼包已发放：获得"向上管理光环"（老板听了就点头）、"周报自动生成器"、"黑话精通"】
+
+我看了看电脑屏幕，上面是还没写完的Q4规划。
+钉钉突然响了，是P9老板发来的消息："在吗？那个项目的底层逻辑再对齐一下，颗粒度要细。"
+
+我嘴角勾起一抹冷笑。前世我就是因为不会汇报，背了锅被优化。
+这一世，我要用"黑话"统治职场！`,
+            choices: [
+                { text: '回复老板：正在复盘，拉通一下认知', nextNode: 'p8_reply', statCheck: null },
+                { text: '假装没看见，继续写代码', nextNode: 'p8_code', statCheck: null },
+                { text: '直接打电话过去对线', nextNode: 'p8_call', statCheck: null }
+            ]
+        },
+
+        'p8_reply': {
+            text: `我打开输入法，开启"黑话精通"模式。
+
+我回复道："老板，关于这个抓手，我正在做全链路的复盘。目前的痛点是资源没有形成闭环，我建议咱们先拉齐一下水位，把颗粒度磨细，再通过组合拳打出一套赋能行业的解决方案。"
+
+三分钟后，老板回了个："👍 有深度。明天早会你来讲讲。"
+
+【叮！向上管理成功】
+【智力 +10 | 魅力 +15 | 获得成就：职场翻译官】
+
+第二天早会，我站在投影仪前，看着台下昏昏欲睡的同事们。`,
+            choices: [
+                { text: '开始你的表演：画一张复杂的架构图', nextNode: 'p8_meeting', statCheck: null },
+                { text: '直接把锅甩给隔壁团队', nextNode: 'p8_blame', statCheck: null },
+                { text: '提议全员996冲刺KPI', nextNode: 'p8_ot', statCheck: null }
+            ]
+        },
+
+        'p8_code': {
+            text: `我决定用实力说话。
+我噼里啪啦敲了一小时代码，重构了整个核心模块。
+
+性能提升了50%，Bug率降为0。
+我自信地把代码提交到Git，并@了老板。
+
+老板回复："代码写得不错，但你要思考背后的商业价值。不要只做执行者，要做思考者。"
+
+我气得差点砸了键盘。
+【叮！技术宅的悲哀】
+【智力 +5 | 魅力 -10 | 获得debuff：老板觉得你没潜力】`,
+            choices: [
+                { text: '忍气吞声，去写PPT', nextNode: 'p8_ppt', statCheck: null },
+                { text: '找HR投诉老板PUA', nextNode: 'p8_hr', statCheck: null }
+            ]
+        },
+
+        'p8_call': {
+            text: `我直接拨通了老板的电话。
+"喂，老板。这么晚还不睡，是在担心公司的未来吗？"
+
+老板愣了一下："呃...是啊，那个项目..."
+
+"项目的事你放心，我已经形成了方法论。只要给我足够的资源，我保证能实现指数级增长。"
+
+老板被我唬住了："好！那你需要什么支持？"
+
+【叮！先发制人】
+【财富 +5000(申请到预算) | 智力 +10】`,
+            choices: [
+                { text: '申请更多HC（招聘名额）', nextNode: 'p8_hire', statCheck: null },
+                { text: '申请团建经费去三亚', nextNode: 'p8_trip', statCheck: null }
+            ]
+        },
+
+        'p8_meeting': {
+            text: `我在白板上画了一个巨大的、谁也看不懂的流程图。
+中间写着几个大字：**"赋能·闭环·生态"**。
+
+我指着图说："我们要通过中台战略，打通端到端的价值链，实现降本增效。"
+
+台下的P7们听得目瞪口呆，纷纷拿出笔记本记录。
+老板频频点头："这就是我要的格局！"
+
+【叮！会议之神】
+【魅力 +30 | 解锁技能：无效沟通大师】
+
+会后，一个P7小妹妹崇拜地看着我："师兄，你好厉害，能教教我怎么写周报吗？"`,
+            choices: [
+                { text: '收她为徒，传授黑话精髓', nextNode: 'p8_mentor', statCheck: null },
+                { text: '高冷地拒绝：自己去悟', nextNode: 'p8_cold', statCheck: null }
+            ]
+        },
+
+        'p8_blame': {
+            text: `我在会上严肃地说："这个项目的延期，主要是因为协同方没有跟上我们的节奏。他们的底层逻辑和我们不在一个维度。"
+
+隔壁团队的P8脸都绿了。
+老板立刻转头去骂隔壁团队。
+
+我深藏功与名。
+【叮！甩锅成功】
+【魅力 -20 | 智力 +15 | 获得debuff：同事的仇恨】`,
+            choices: [
+                { text: '继续打压竞争对手', nextNode: 'p8_fight', statCheck: null },
+                { text: '见好就收，请老板喝奶茶', nextNode: 'p8_treat', statCheck: null }
+            ]
+        },
+
+        'p8_ot': {
+            text: `我站起来，激情澎湃地说："兄弟们，现在是创业阶段！我们要拿出All in的精神！"
+
+"我提议，从今天起，全员996，周六来公司团建（加班）！"
+
+办公室里一片哀嚎。
+但老板在群里发了个大红包："说得好！这才是阿里味！"
+
+【叮！成为卷王】
+【武力 +10(熬夜能力) | 魅力 -30(被同事诅咒) | 财富 +10000(年终奖系数3.75)】`,
+            choices: [
+                { text: '带领团队冲上市', nextNode: 'p8_ipo', statCheck: null },
+                { text: '自己先溜回家睡觉', nextNode: 'p8_sleep', statCheck: null }
+            ]
+        },
+
+        'p8_end_1': {
+            text: `十年后，我成了阿里的合伙人。
+
+我站在纳斯达克敲钟的舞台上，手里拿着期权变现的巨额支票。
+
+回首往事，我从一个普通的P8，靠着"黑话"和"向上管理"，一步步走到了今天。
+
+我出版了一本书，叫《重生之我在大厂当P8》。
+这本书成了职场圣经，销量破百万。
+
+【P8线·完】
+【达成结局：职场教父】
+【评分：SSS】`,
+            choices: [
+                { text: '返回主菜单', nextNode: null, statCheck: null }
+            ]
+        },
+
+        'p8_end_2': {
+            text: `我选择了另一条路。
+
+在拿到3.75后，我果断提了离职。
+我用攒下的钱和期权，去大理开了一家民宿。
+
+每天晒晒太阳，喝喝茶，再也不用写周报，再也不用对齐颗粒度。
+
+偶尔有前同事来找我，问我："师兄，你不怀念大厂的辉煌吗？"
+
+我笑笑："那只是福报，现在才是生活。"
+
+【P8线·完】
+【达成结局：逃离大厂】
+【评分：A+】`,
+            choices: [
+                { text: '返回主菜单', nextNode: null, statCheck: null }
+            ]
+        },
+
+        // P8线其他节点
+        'p8_ppt': { text: '我花了一周做了一份100页的PPT。', choices: [{ text: '汇报', nextNode: 'p8_meeting', statCheck: null }] },
+        'p8_hr': { text: 'HR找我谈话，说我缺乏团队精神。', choices: [{ text: '反思', nextNode: 'p8_start', statCheck: null }] },
+        'p8_hire': { text: '我招了一堆人，组成了自己的势力。', choices: [{ text: '扩张', nextNode: 'p8_meeting', statCheck: null }] },
+        'p8_trip': { text: '我们去三亚开了三天会，其实都在玩。', choices: [{ text: '回来干活', nextNode: 'p8_start', statCheck: null }] },
+        'p8_mentor': { text: '我带出了一个强大的团队。', choices: [{ text: '晋升P9', nextNode: 'p8_end_1', statCheck: null }] },
+        'p8_cold': { text: '我保持了高冷的人设。', choices: [{ text: '继续', nextNode: 'p8_start', statCheck: null }] },
+        'p8_fight': { text: '职场斗争越来越激烈。', choices: [{ text: '胜出', nextNode: 'p8_end_1', statCheck: null }] },
+        'p8_treat': { text: '老板对我印象更好了。', choices: [{ text: '加薪', nextNode: 'p8_end_1', statCheck: null }] },
+        'p8_ipo': { text: '公司上市了，我财务自由。', choices: [{ text: '结局', nextNode: 'p8_end_1', statCheck: null }] },
+        'p8_sleep': { text: '我放弃了挣扎，选择躺平。', choices: [{ text: '结局', nextNode: 'p8_end_2', statCheck: null }] }
     }
 };
