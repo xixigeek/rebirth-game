@@ -34,6 +34,14 @@ const gameData = {
             initialStats: { charm: 40, intelligence: 95, wealth: 80, strength: 20 },
             cheats: ['向上管理光环', '周报自动生成器', '黑话精通'],
             startNode: 'p8_start'
+        },
+        {
+            id: 'sd',
+            name: '外企SD',
+            description: '重生为全球500强外企的解决方案设计师，WLB天花板，英语流利，准时下班',
+            initialStats: { charm: 85, intelligence: 80, wealth: 70, strength: 60 },
+            cheats: ['准时下班光环', '英语流利通', 'OOO护体'],
+            startNode: 'sd_start'
         }
     ],
 
@@ -1182,6 +1190,196 @@ const gameData = {
         'p8_fight': { text: '职场斗争越来越激烈。', choices: [{ text: '胜出', nextNode: 'p8_end_1', statCheck: null }] },
         'p8_treat': { text: '老板对我印象更好了。', choices: [{ text: '加薪', nextNode: 'p8_end_1', statCheck: null }] },
         'p8_ipo': { text: '公司上市了，我财务自由。', choices: [{ text: '结局', nextNode: 'p8_end_1', statCheck: null }] },
-        'p8_sleep': { text: '我放弃了挣扎，选择躺平。', choices: [{ text: '结局', nextNode: 'p8_end_2', statCheck: null }] }
+        'p8_sleep': { text: '我放弃了挣扎，选择躺平。', choices: [{ text: '结局', nextNode: 'p8_end_2', statCheck: null }] },
+
+        // ===== 外企SD线 =====
+        'sd_start': {
+            text: `我重生了！
+
+这次，我是全球顶尖外企 MNC 的 SD (Solution Designer)。
+
+早上9:30，我准时踏入陆家嘴的甲级写字楼。
+手里拿着一杯 Iced Americano，耳机里放着 Jazz。
+没有打卡机，没有周报，更没有 996。
+
+【叮！外企精英系统激活】
+【当前身份：MNC 资深解决方案设计师】
+【新手礼包：准时下班光环（18:00 自动断网）、英语流利通（Native Speaker 级别）、OOO 护体（周末自动失联）】
+
+我的印度籍 Manager Raj 发来 Teams 消息："Hi, can you join a quick sync? We need to discuss the architecture for the new project."
+
+我看了一眼时间：17:55。`,
+            choices: [
+                { text: '回复 "Let\'s take this offline tomorrow"', nextNode: 'sd_offline', statCheck: null },
+                { text: '假装没看见，准时下班', nextNode: 'sd_leave', statCheck: null },
+                { text: '用全英文邮件优雅甩锅', nextNode: 'sd_email', statCheck: null }
+            ]
+        },
+
+        'sd_offline': {
+            text: `我在 Teams 上回复："Hi Raj, I'm OOO right now. Let's circle back tomorrow morning. Cheers."
+
+Raj 秒回了一个 "Thumbs up" emoji。
+
+这就是外企的默契：下班后的时间，神圣不可侵犯。
+
+我走出大楼，上海的晚风微凉。
+路边有人在卖花，我买了一束送给楼下的保安大叔。
+
+【叮！WLB 达成】
+【魅力 +20 | 智力 +10 | 获得成就：边界感大师】
+
+第二天早会，我用流利的英语主持了 Global Call，惊艳了总部的 VP。`,
+            choices: [
+                { text: '在会议上提出大胆方案', nextNode: 'sd_meeting', statCheck: null },
+                { text: '摸鱼一整天', nextNode: 'sd_coffee', statCheck: null },
+                { text: '申请 WFH (居家办公)', nextNode: 'sd_wfh', statCheck: null }
+            ]
+        },
+
+        'sd_leave': {
+            text: `我合上笔记本电脑，戴上墨镜，大步走出办公室。
+
+身后是还在加班的实习生们投来羡慕的目光。
+我坐进网约车，对司机说："去外滩，我要去看夜景。"
+
+手机震动了一下，是 HR 发的全员邮件：《关于提升员工幸福感的若干建议》。
+我笑了笑，心想：幸福感不就是准时下班吗？
+
+【叮！准时下班光环生效】
+【武力 +30 | 魅力 +20 | 解锁支线：城市探索者】`,
+            choices: [
+                { text: '去健身房撸铁', nextNode: 'sd_gym', statCheck: null },
+                { text: '去小酒馆喝一杯', nextNode: 'sd_bar', statCheck: null },
+                { text: '回家追剧', nextNode: 'sd_home', statCheck: null }
+            ]
+        },
+
+        'sd_email': {
+            text: `我打开 Outlook，开始撰写一封“优雅”的邮件。
+
+Subject: Re: Project Architecture Discussion
+
+Dear Raj,
+
+Thank you for reaching out. However, due to the current bandwidth constraints and the pending dependencies from the global team, I suggest we postpone this discussion until we have a clearer roadmap.
+
+Best regards,
+Da Bai
+
+这封邮件的核心意思就是：别烦我，我啥也不知道，等别人做完再说。
+
+【叮！职场甩锅术大成】
+【智力 +25 | 魅力 +15 | 获得技能：Corporate Speak】`,
+            choices: [
+                { text: '发送并关闭邮箱', nextNode: 'sd_leave', statCheck: null },
+                { text: '抄送给老板', nextNode: 'sd_cc', statCheck: null },
+                { text: '继续优化措辞', nextNode: 'sd_polish', statCheck: null }
+            ]
+        },
+
+        'sd_meeting': {
+            text: `在 Global Call 上，我提出了一个基于 Cloud-Native 的颠覆性方案。
+
+总部的 VP 听了连连点头："That's a game-changer! Da Bai, you always bring such innovative ideas."
+
+印度的 PM 试图反驳，被我一句 "Let's look at the data" 怼了回去。
+
+会议结束后，我的 Teams 收到了几十个点赞。
+
+【叮！技术权威确立】
+【智力 +30 | 魅力 +25 | 获得称号：MNC 架构之神】`,
+            choices: [
+                { text: '申请升职加薪', nextNode: 'sd_promote', statCheck: null },
+                { text: '保持低调', nextNode: 'sd_lowkey', statCheck: null },
+                { text: '跳槽去竞争对手', nextNode: 'sd_jump', statCheck: null }
+            ]
+        },
+
+        'sd_coffee': {
+            text: `我拿着笔记本坐在楼下的星巴克，一坐就是一下午。
+
+其实我什么都没干，只是在刷 LinkedIn 和 Reddit。
+偶尔改两行代码，假装自己在忙。
+
+同事问我："Da Bai, what are you working on?"
+我回答："Just doing some deep thinking about the system scalability."
+
+【叮！摸鱼艺术】
+【智力 +10 | 财富 +5000 (时薪照发) | 获得成就：带薪思考】`,
+            choices: [
+                { text: '继续摸鱼', nextNode: 'sd_coffee', statCheck: null },
+                { text: '假装忙碌', nextNode: 'sd_busy', statCheck: null },
+                { text: '提前下班', nextNode: 'sd_leave', statCheck: null }
+            ]
+        },
+
+        'sd_wfh': {
+            text: `我申请了 WFH。
+
+早上10点起床，穿着睡衣打开电脑。
+一边开会，一边让机器人帮我煮咖啡。
+
+中午叫个外卖，下午在阳台上晒晒太阳。
+这种生活，简直是神仙日子。
+
+【叮！WFH 快乐多】
+【魅力 +15 | 智力 +10 | 解锁状态：松弛感拉满】`,
+            choices: [
+                { text: '长期 WFH', nextNode: 'sd_end_1', statCheck: null },
+                { text: '回办公室社交', nextNode: 'sd_social', statCheck: null },
+                { text: '去国外分公司出差', nextNode: 'sd_travel', statCheck: null }
+            ]
+        },
+
+        'sd_end_1': {
+            text: `我在外企度过了完美的十年。
+
+每年都有 Global Travel，去过硅谷、伦敦、新加坡。
+我有充足的 time 陪伴家人，有健康的 body 享受生活。
+
+退休那天，同事们为我举办了一个 Farewell Party。
+Raj 说："Da Bai, you are the legend of our team."
+
+我微笑着举起酒杯：
+"Work is just a part of life, not the whole thing."
+
+【外企SD线·完】
+【达成结局：人生赢家】
+【评分：SSS】`,
+            choices: [
+                { text: '返回主菜单', nextNode: null, statCheck: null }
+            ]
+        },
+
+        'sd_end_2': {
+            text: `我成为了公司的 Regional Director。
+
+但我依然坚持每天 18:00 下班。
+因为我知道，只有照顾好自己，才能带领团队走得更远。
+
+我推动了公司的“无会议周三”和“心理健康假”。
+在我的带领下，团队成为了全公司幸福指数最高的部门。
+
+【外企SD线·完】
+【达成结局：职场领袖】
+【评分：SSS+】`,
+            choices: [
+                { text: '返回主菜单', nextNode: null, statCheck: null }
+            ]
+        },
+
+        // 外企SD线其他节点
+        'sd_gym': { text: '我去健身房练出了八块腹肌。', choices: [{ text: '结局', nextNode: 'sd_end_1', statCheck: null }] },
+        'sd_bar': { text: '我在小酒馆遇到了有趣的灵魂。', choices: [{ text: '聊天', nextNode: 'sd_end_1', statCheck: null }] },
+        'sd_home': { text: '我在家享受了宁静的夜晚。', choices: [{ text: '休息', nextNode: 'sd_end_1', statCheck: null }] },
+        'sd_cc': { text: '我抄送给了大老板，Raj 吓坏了。', choices: [{ text: '胜利', nextNode: 'sd_meeting', statCheck: null }] },
+        'sd_polish': { text: '我花了半小时润色邮件，显得更专业。', choices: [{ text: '发送', nextNode: 'sd_email', statCheck: null }] },
+        'sd_promote': { text: '我成功升职为 Principal SD。', choices: [{ text: '结局', nextNode: 'sd_end_2', statCheck: null }] },
+        'sd_lowkey': { text: '我保持了低调，继续做技术专家。', choices: [{ text: '结局', nextNode: 'sd_end_1', statCheck: null }] },
+        'sd_jump': { text: '我跳槽去了另一家更好的外企。', choices: [{ text: '高薪', nextNode: 'sd_end_1', statCheck: null }] },
+        'sd_busy': { text: '我打开了很多窗口，假装很忙。', choices: [{ text: '继续', nextNode: 'sd_coffee', statCheck: null }] },
+        'sd_social': { text: '我回办公室和同事建立了深厚友谊。', choices: [{ text: '快乐', nextNode: 'sd_end_1', statCheck: null }] },
+        'sd_travel': { text: '我去新加坡出差，顺便旅游。', choices: [{ text: '享受', nextNode: 'sd_end_1', statCheck: null }] }
     }
 };
